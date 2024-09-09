@@ -9,7 +9,8 @@ https://docs.djangoproject.com/en/5.1/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/5.1/ref/settings/
 """
-
+import os
+from dotenv import load_dotenv
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -25,12 +26,16 @@ SECRET_KEY = 'django-insecure-+6+t(2$jbq$ee=mcg$jytpsdrv%ny%y8f95s^6ch32g1t_#pxv
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
+# Load environment variables from .env file
+load_dotenv()
+
 ALLOWED_HOSTS = []
 
 
 # Application definition
 
 INSTALLED_APPS = [
+    "daphne",
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -67,16 +72,23 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'webGui.wsgi.application'
+ASGI_APPLICATION = "webGui.asgi.application"
 
 
 # Database
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+    "default": {
+        "ENGINE": "django.db.backends.mysql",
+        "NAME": os.getenv("DATABASE_NAME"),
+        "USER": os.getenv("DATABASE_USER"),
+        "PASSWORD": os.getenv("DATABASE_PWD"),
+        "HOST": os.getenv("DATABASE_SERVER"),
+        "PORT": os.getenv("DATABASE_PORT"),
+        "OPTIONS": {
+            "init_command": "SET default_storage_engine=INNODB",
+        }
     }
 }
 
