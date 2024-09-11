@@ -1,1 +1,4 @@
 {% extends "admin/login.html" %}
+{%block extrastyle %}{{ block.super }}
+    {% include "includes/scripts.html" %}
+{%endblock%}
