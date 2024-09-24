@@ -89,6 +89,17 @@ DATABASES = {
         "OPTIONS": {
             "init_command": "SET default_storage_engine=INNODB",
         }
+    },
+    "player_data": {
+        "ENGINE": "django.db.backends.mysql",
+        "NAME": os.getenv("PLAYER_DATABASE_NAME"),
+        "USER": os.getenv("DATABASE_USER"),
+        "PASSWORD": os.getenv("DATABASE_PWD"),
+        "HOST": os.getenv("DATABASE_SERVER"),
+        "PORT": os.getenv("DATABASE_PORT"),
+        "OPTIONS": {
+            "init_command": "SET default_storage_engine=INNODB",
+        }
     }
 }
 
@@ -111,7 +122,7 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-LOGIN_URL = 'login'
+LOGIN_URL = 'accounts/login.html'
 LOGOUT_URL = 'logout'
 
 # Internationalization
