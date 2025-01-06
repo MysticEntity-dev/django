@@ -39,6 +39,7 @@
         <h1>Willkommen zu Ära der Eroberer!</h1>
         {% if user.is_authenticated %}
                 Hallo {{user.username}}
+
         {% else %}
                 <a href="accounts/newUser" class="button">Registrieren</a>
                 <a href="accounts/login" class="button">Spiel starten</a>
