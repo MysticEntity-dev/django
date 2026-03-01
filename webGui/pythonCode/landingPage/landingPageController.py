@@ -1,4 +1,4 @@
-from webGui.pythonCode.admin.models import UserWorld
+from pythonCode.admin.models import UserWorld
 
 def getAllAvailWorlds(user):
-    UserWorld.objects.filter(userId=user.id)
+    UserWorld.objects.filter(userid=user.id)
