@@ -1,6 +1,7 @@
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render
 from django.contrib.admin.views.decorators import staff_member_required
+from pythonCode.admin.adminController import getAllWorlds
 
 
 @staff_member_required
@@ -9,4 +10,4 @@ def adminMain (request):
 
 
 def adminWorlds(request):
-    return render(request, "adminSites\\worldsAdmin.html")
+    return render(request, "adminSites\\worldsAdmin.html",context={"WORLDS":getAllWorlds()})

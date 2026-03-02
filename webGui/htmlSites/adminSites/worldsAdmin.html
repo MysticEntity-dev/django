@@ -1,5 +1,7 @@
 {% extends 'baseTemplates/base.html' %}
 {% load static %}
 {% block content %}
-test
+{%for world in WORLDS%}
+{{world}} <br>
+{%endfor%}
 {% endblock %}

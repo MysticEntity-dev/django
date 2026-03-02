@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'pythonCode'
+
 ]
 
 MIDDLEWARE = [
@@ -103,6 +104,7 @@ DATABASES = {
         }
     }
 }
+DATABASE_ROUTERS = ["pythonCode.dbRouter.generalDbRouter.GeneralDbRouter"]
 
 
 # Password validation
